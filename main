@@ -1,0 +1,168 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shuwang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/05 16:07:08 by shuwang           #+#    #+#             */
+/*   Updated: 2024/06/05 16:51:14 by shuwang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <limits.h>
+#include "ft_printf.h"
+
+int	main(void)
+{
+	char *ptr = "Hello world";
+	char *ptr1 = "Hello world cup";
+	char *nullptr = NULL;
+
+	/*C CASES*/
+	ft_printf("c CASES ________________________________________________________\n\n");
+	printf("std:case c: Hello world %c %c\n", 'd', 168);
+	ft_printf("slf_case c: Hello world %c %c\n", 'd', 168);
+	ft_printf("\n");
+
+	/*S CASES*/
+	ft_printf("s CASES ________________________________________________________\n\n");
+	printf("std:case s: Hello world %s\n", "hello");
+	ft_printf("slf_case s: Hello world %s\n", "hello");
+	ft_printf("\n");
+
+	printf("std:case s: Hello world %s\n", nullptr);
+	ft_printf("slf_case s: Hello world %s\n", nullptr);
+	ft_printf("\n");
+
+	/*p CASES*/
+	ft_printf("p CASES ________________________________________________________\n\n");
+	printf("std:case p: Test pointer %p : %p\n", ptr, ptr1);
+	ft_printf("slf_case p: Test pointer %p : %p\n", ptr, ptr1);
+	ft_printf("\n");
+
+	/*i d CASES*/
+	ft_printf("i d CASES ______________________________________________________\n\n");
+	printf("std:case d i(deci): Hello world %d %d %d %i %i %i\n", INT_MAX, INT_MIN, 0, INT_MAX, INT_MIN, 0);
+	ft_printf("slf_case d i(deci): Hello world %d %d %d %i %i %i\n", INT_MAX, INT_MIN, 0, INT_MAX, INT_MIN, 0);
+	ft_printf("\n");
+
+	printf("std:case d i(deci): Hello world %d %i\n", 16513687, 16513687);
+	ft_printf("slf_case d i(deci): Hello world %d %i\n", 16513687, 16513687);
+	ft_printf("\n");
+
+	printf("std:case d i(oct): Hello world %d %i\n", 01651367, 01651367);
+	ft_printf("slf_case d i(oct): Hello world %d %i\n", 01651367, 01651367);
+	ft_printf("\n");
+
+	printf("std:case d i(hex): Hello world %d %i\n", 0x16513687, 0x16513687);
+	ft_printf("slf_case d i(hex): Hello world %d %i\n", 0x16513687, 0x16513687);
+	ft_printf("\n");
+
+	/*u CASES*/
+	ft_printf("u CASES ________________________________________________________\n\n");
+	printf("std:case u(deci): Hello world %u %u %u %u\n", INT_MAX, 1312412, 0, ((unsigned int)-1));
+	ft_printf("slf_case u(deci): Hello world %u %u %u %u\n", INT_MAX, 1312412, 0, ((unsigned int)-1));
+	ft_printf("\n");
+
+	/*X x CASES*/
+	ft_printf("X x CASES ______________________________________________________\n\n");
+	printf("std:case X: Hello world %X %X\n", 16513687, INT_MIN);
+	ft_printf("slf_case X: Hello world %X %X\n", 16513687, INT_MIN);
+	ft_printf("\n");
+
+	printf("std:case x: Hello world %x %x\n", -16513687, INT_MIN);
+	ft_printf("slf_case x: Hello world %x %x\n", -16513687, INT_MIN);
+	ft_printf("\n");
+
+	printf("std:case X: Hello world %X\n", 0);
+	ft_printf("slf_case X: Hello world %X\n", 0);
+	ft_printf("\n");
+
+	/*% CASES*/
+	ft_printf("% CASES ________________________________________________________\n\n");
+	printf("std:case d i(deci): Hello world %% %%%% %%%%%%\n");
+	ft_printf("slf_case d i(deci): Hello world %% %%%% %%%%%%\n");
+	ft_printf("\n");
+
+	printf("std:case d i(deci): Hello world %% %%%%%%\n");
+	ft_printf("slf_case d i(deci): Hello world %% %%%%%%\n");
+	ft_printf("\n");
+
+	printf("%%\n");
+	ft_printf("%%\n");
+	ft_printf("\n");
+
+	/*NULL CASES*/
+	ft_printf("NULL CASES _____________________________________________________\n\n");
+	printf("%d\n", printf(NULL));
+	ft_printf("%d\n", ft_printf(NULL));
+	ft_printf("\n");
+
+	/*All CASES*/
+	ft_printf("ALL CASES ______________________________________________________\n\n");
+	printf("std:case all: Hello world test return: %d\n", printf("Hello%% world %d %s %s %% %p %p %x %u %i\n", -0x1651367, "second argument", nullptr, NULL, ptr1, 12345, ((unsigned int) - 1), INT_MIN));
+	ft_printf("slf_case all: Hello world test return: %d\n", ft_printf("Hello%% world %d %s %s %% %p %p %x %u %i\n", -0x1651367, "second argument", nullptr, NULL, ptr1, 12345, ((unsigned int) - 1), INT_MIN));
+	ft_printf("\n");
+
+	/*Check return value d CASES*/
+	ft_printf("return i d CASES _______________________________________________\n\n");
+	printf("std:case d: Hello world test return: %d\n", printf("Hello world %d\n", -0x1651367));
+	ft_printf("slf_case d: Hello world test return: %d\n", ft_printf("Hello world %d\n", -0x1651367));
+	printf("std:case d: Hello world test return: %i\n", printf("Hello world %i\n", -0x1651367));
+	ft_printf("slf_case d: Hello world test return: %i\n", ft_printf("Hello world %i\n", -0x1651367));
+	ft_printf("\n");
+
+	printf("std:case d: Hello world test return: %d\n", printf("Hello world %d\n", INT_MIN));
+	ft_printf("slf_case d: Hello world test return: %d\n", ft_printf("Hello world %d\n", INT_MIN));
+	printf("std:case d: Hello world test return: %i\n", printf("Hello world %i\n", 0));
+	ft_printf("slf_case d: Hello world test return: %i\n", ft_printf("Hello world %i\n", 0));
+	ft_printf("\n");
+
+	/*Check return value s CASES*/
+	ft_printf("return s CASES _________________________________________________\n\n");
+	printf("std:case s: Hello world test return: %d\n", printf("Hello world %s\n", "second argument"));
+	ft_printf("slf_case s: Hello world test return: %d\n", ft_printf("Hello world %s\n", "second argument"));
+	ft_printf("\n");
+
+	printf("std:case p: Hello world test return: %d\n", printf("%s\n", "Hello world"));
+	ft_printf("slf_case p: Hello world test return: %d\n", ft_printf("%s\n", "Hello world"));
+	ft_printf("\n");
+
+	/*Check return value p CASES*/
+	ft_printf("return p CASES _________________________________________________\n\n");
+	printf("std:case p: Hello world test return: %d\n", printf("Hello world %p\n", NULL));
+	ft_printf("slf_case p: Hello world test return: %d\n", ft_printf("Hello world %p\n", NULL));
+	ft_printf("\n");
+
+	printf("std:case p: Hello world test return: %d\n", printf("Hello world %p\n", ptr1));
+	ft_printf("slf_case p: Hello world test return: %d\n", ft_printf("Hello world %p\n", ptr1));
+	ft_printf("\n");
+
+	printf("std:case p: return: %d\n", printf("%p\n", ptr1));
+	ft_printf("slf_case p: return: %d\n", ft_printf("%p\n", ptr1));
+	ft_printf("\n");
+
+	printf("std:case p: Hello world test return: %d\n", printf("Hello world %p\n", ptr));
+	ft_printf("slf_case p: Hello world test return: %d\n", ft_printf("Hello world %p\n", ptr));
+	ft_printf("\n");
+
+	printf("std:case p: Hello world test return: %d\n", printf("%p\n", NULL));
+	ft_printf("slf_case p: Hello world test return: %d\n", ft_printf("%p\n", NULL));
+	ft_printf("\n");
+
+	/*Check return value x CASES*/
+	ft_printf("return x CASES _________________________________________________\n\n");
+	printf("std:case x: Hello world test return: %d\n", printf("Hello world %x\n", 12345));
+	ft_printf("slf_case x: Hello world test return: %d\n", ft_printf("Hello world %x\n", 12345));
+	ft_printf("\n");
+
+	/*Check return value X CASES*/
+	ft_printf("return X CASES _________________________________________________\n\n");
+	printf("std:case X: Hello world test return: %d\n", printf("Hello world %X\n", 12345));
+	ft_printf("slf_case X: Hello world test return: %d\n", ft_printf("Hello world %X\n", 12345));
+	ft_printf("\n");
+
+	return (0);
+}
