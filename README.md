@@ -32,13 +32,19 @@ Example
 #include "ft_printf.h"
 
 int main(void)
+
 {
+
     ft_printf("Hello, %s!\n", "world");
+    
     ft_printf("Decimal: %d, Hex: %x\n", 42, 42);
+    
     return 0;
+    
 }
 
 compile with main
+
 gcc -Wall -Wextra -Werror main.c -L. -lftprintf
 
 
