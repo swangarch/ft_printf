@@ -1,4 +1,5 @@
 ft_printf
+
 📌 Project Overview
 ft_printf is a project from the 42 curriculum that aims to recreate the functionality of the standard C printf function. The goal is to implement formatted output handling, including parsing format strings and managing variadic arguments — all without using the original printf.
 
